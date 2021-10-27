@@ -6,7 +6,7 @@ terraform {
   }
 
   backend "remote" {
-    organization = "ckhedhiri "
+    organization = "ckhedhiri"
 
     workspaces {
       name = "github-trigger"
