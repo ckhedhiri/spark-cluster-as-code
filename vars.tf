@@ -1,5 +1,4 @@
 variable "AWS_REGION" {
-  default = "eu-west-1"
 }
 
 variable "SPARK_TAG_AMI_VERSION"{
