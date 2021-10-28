@@ -6,7 +6,7 @@ variable "SPARK_TAG_AMI_VERSION"{
 }
 
 variable "PATH_TO_PUBLIC_KEY" {
-  default = "ec2-key.pub"
+  default = "taas-spark-key.pub"
 }
 
 variable "SPARK_BIN" {
