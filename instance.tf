@@ -59,7 +59,7 @@ resource "aws_instance" "spark_slave" {
 
 resource "aws_instance" "jupyter" {
   ami           = "${data.aws_ami.spark_ami.id}"
-  instance_type = ""
+  instance_type = "t2.micro"
   key_name      = "${aws_key_pair.ec2_key.key_name}"
   vpc_security_group_ids = ["${aws_security_group.jupyter-sg.id}"]
   subnet_id = "${module.vpc.public_subnets[0]}"
