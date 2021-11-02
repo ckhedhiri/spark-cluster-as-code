@@ -32,7 +32,7 @@ resource "aws_security_group" "spark-sg" {
 }
 
 resource "aws_security_group" "jupyter-sg" {
-  vpc_id = "${module.vpc.vpc_id}"
+  vpc_id = module.vpc.vpc_id
   name = "jupyter-sg"
   description = "jupyter-sg"
   egress {
