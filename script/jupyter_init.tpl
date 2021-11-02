@@ -16,7 +16,7 @@ echo "c.NotebookApp.ip = '0.0.0.0'" >> /home/ubuntu/.jupyter/jupyter_notebook_co
 echo "c.NotebookApp.open_browser = False" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.port = 8888" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.token = ''" >> 	/home/ubuntu/.jupyter/jupyter_notebook_config.py
-echo "c.NotebookApp.password = 'wewyse_workshop'" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.password = ''" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 
 export PYSPARK_DRIVER_PYTHON="jupyter"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
