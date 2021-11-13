@@ -13,7 +13,3 @@ output "private-ip-spark-slave" {
 output "jupyter" {
   value = aws_instance.jupyter.public_dns
 }
-
-output "jupyter_password" {
-  value = "wewyse_workshop"
-}

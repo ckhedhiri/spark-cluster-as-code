@@ -15,16 +15,12 @@ data "aws_ami" "spark_ami" {
 
 data "template_file" "spark_master_init" {
   template = file("script/spark_master_init.tpl")
-  vars = {
-    spark_bin = var.SPARK_BIN
-  }
 }
 
 data "template_file" "spark_slave_init" {
   template = file("script/spark_slave_init.tpl")
   vars = {
     spark_master_private_dns = aws_instance.spark_master.private_dns
-    spark_bin = var.SPARK_BIN
   }
 }
 

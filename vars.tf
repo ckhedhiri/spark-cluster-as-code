@@ -13,12 +13,6 @@ variable "PATH_TO_PUBLIC_KEY" {
   default = "taas-spark-key.pub"
 }
 
-variable "SPARK_BIN" {
-  type = string
-  description = "spark path"
-  default = "spark-3.2.0-bin-hadoop3.2-scala2.13"
-}
-
 variable "PUBLIC_IP_CIDR"{
   type = string
   default = "0.0.0.0/0"
