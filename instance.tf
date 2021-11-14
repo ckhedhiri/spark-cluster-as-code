@@ -28,6 +28,10 @@ resource "aws_instance" "spark_master" {
     user  = "ubuntu"
     host  = self.private_ip
     private_key = file(var.PATH_TO_PRIVATE_KEY)
+    bastion_host = aws_instance.jupyter.public_ip
+    bastion_host_key = file(var.PATH_TO_PUBLIC_KEY)
+    bastion_user = "ubuntu"
+    bastion_private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
 
   provisioner "remote-exec" {
@@ -53,6 +57,10 @@ resource "aws_instance" "spark_slave" {
     user  = "ubuntu"
     host  = self.private_ip
     private_key = file(var.PATH_TO_PRIVATE_KEY)
+    bastion_host = aws_instance.jupyter.public_ip
+    bastion_host_key = file(var.PATH_TO_PUBLIC_KEY)
+    bastion_user = "ubuntu"
+    bastion_private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
 
   provisioner "remote-exec" {
