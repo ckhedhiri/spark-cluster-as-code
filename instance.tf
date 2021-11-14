@@ -58,7 +58,7 @@ resource "aws_instance" "spark_slave" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/spark_slave_init.sh",
-      "/tmp/spark_slave_init.sh " + aws_instance.spark_master.private_dns
+      format("%s %s","/tmp/spark_slave_init.sh", aws_instance.spark_master.private_dns)
     ]
   }
 }
