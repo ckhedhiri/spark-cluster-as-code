@@ -1,7 +1,3 @@
-output "spark-master" {
-  value = aws_instance.spark_master.public_dns
-}
-
 output "private-ip-spark-master" {
   value = aws_instance.spark_master.private_ip
 }
