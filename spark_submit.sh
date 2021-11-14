@@ -2,6 +2,6 @@
 
 spark-submit \
   --class org.apache.spark.examples.SparkPi \
-  --master spark://ip-10-0-1-148.eu-west-1.compute.internal:7077 \
+  --master spark://ip-10-0-1-204.eu-west-1.compute.internal:7077 \
   --deploy-mode client \
   $SPARK_HOME/examples/jars/spark-examples_2.13-3.2.0.jar
