@@ -11,6 +11,7 @@ mkdir /home/ubuntu/.jupyter
 touch /home/ubuntu/.jupyter/jupyter_notebook_config.py
 chown ubuntu:ubuntu /home/ubuntu/.jupyter
 chown ubuntu:ubuntu /home/ubuntu/.jupyter/jupyter_notebook_config.py
+
 echo "c = get_config()" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.ip = '0.0.0.0'" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
@@ -18,10 +19,9 @@ echo "c.NotebookApp.port = 8888" >> /home/ubuntu/.jupyter/jupyter_notebook_confi
 echo "c.NotebookApp.token = ''" >> 	/home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.password = u''" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 
-export PYSPARK_DRIVER_PYTHON="jupyter"
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
-export PYSPARK_PYTHON=python3
-export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
-export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.9.2-src.zip:$PYTHONPATH
+echo "export PYSPARK_DRIVER_PYTHON='jupyter'" >> /etc/profile.d/jupyter_env.sh
+echo "export PYSPARK_DRIVER_PYTHON_OPTS='notebook'" >> /etc/profile.d/jupyter_env.sh
+echo "export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH" >> /etc/profile.d/jupyter_env.sh
+echo "export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.9.2-src.zip:$PYTHONPATH" >> /etc/profile.d/jupyter_env.sh
 
 jupyter notebook &
