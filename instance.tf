@@ -19,6 +19,11 @@ resource "aws_instance" "spark_master" {
   key_name      = aws_key_pair.ec2_key.key_name
   vpc_security_group_ids = [aws_security_group.spark-sg.id]
   subnet_id = module.vpc.private_subnets[0]
+  connection {
+    type     = "ssh"
+    user     = "ubuntu"
+    host = self.private_ip
+  }
   tags          = {
     "Name" = "spark-master"
   }
@@ -41,6 +46,11 @@ resource "aws_instance" "spark_slave" {
   ami           = data.aws_ami.spark_ami.id
   instance_type = "t2.micro"
   key_name      = aws_key_pair.ec2_key.key_name
+  connection {
+    type     = "ssh"
+    user     = "ubuntu"
+    host = self.private_ip
+  }
   vpc_security_group_ids = [aws_security_group.spark-sg.id]
   subnet_id = module.vpc.private_subnets[0]
   tags          = {
@@ -69,6 +79,11 @@ resource "aws_instance" "jupyter" {
   key_name      = aws_key_pair.ec2_key.key_name
   vpc_security_group_ids = [aws_security_group.jupyter-sg.id]
   subnet_id = module.vpc.public_subnets[0]
+  connection {
+    type     = "ssh"
+    user     = "ubuntu"
+    host = self.private_ip
+  }
   tags          = {
     "Name" = "jupyter"
   }
