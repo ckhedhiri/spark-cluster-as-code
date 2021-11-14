@@ -25,7 +25,7 @@ data "template_file" "spark_slave_init" {
 }
 
 data "template_file" "jupyter_init" {
-  template = "${file("script/jupyter_init.tpl")}"
+  template = file("script/jupyter_init.tpl")
 }
 
 resource "aws_instance" "spark_master" {
