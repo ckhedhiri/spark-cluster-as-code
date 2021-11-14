@@ -41,6 +41,7 @@ resource "aws_instance" "spark_master" {
 
   provisioner "remote-exec" {
     inline = [
+      "echo $SPARK_HOME",
       "chmod +x /tmp/spark_master_init.sh",
       "/tmp/spark_master_init.sh",
     ]
@@ -69,9 +70,15 @@ resource "aws_instance" "spark_slave" {
     bastion_private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
 
+  provisioner "file" {
+    source      = "script/spark_slave_init.sh"
+    destination = "/tmp/spark_slave_init.sh"
+  }
+
   provisioner "remote-exec" {
     inline = [
-      "$SPARK_HOME/sbin/start-worker.sh spark://${aws_instance.spark_master.private_dns}:7077)"
+      "chmod +x /tmp/spark_slave_init.sh",
+      "/tmp/spark_slave_init.sh ${aws_instance.spark_master.private_dns}",
     ]
   }
 }
