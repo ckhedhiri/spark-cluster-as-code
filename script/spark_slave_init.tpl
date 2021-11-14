@@ -1,3 +1,3 @@
 #!/bin/bash
 
-$SPARK_HOME/sbin/start-worker.sh spark://${spark_master_private_dns}:7077
+$SPARK_HOME/sbin/start-worker.sh spark://$1:7077
