@@ -34,9 +34,15 @@ resource "aws_instance" "spark_master" {
     bastion_private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
 
+  provisioner "file" {
+    source      = "script/spark_master_init.sh"
+    destination = "/tmp/spark_master_init.sh"
+  }
+
   provisioner "remote-exec" {
     inline = [
-      "\\${SPARK_HOME}/sbin/start-master.sh -h $(curl http://169.254.169.254/latest/meta-data/hostname)"
+      "chmod +x /tmp/spark_master_init.sh",
+      "/tmp/spark_master_init.sh",
     ]
   }
 }
