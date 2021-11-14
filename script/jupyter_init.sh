@@ -10,12 +10,11 @@ touch /home/ubuntu/.jupyter/jupyter_notebook_config.py
 chown ubuntu:ubuntu /home/ubuntu/.jupyter
 chown ubuntu:ubuntu /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c = get_config()" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
-echo "from IPython.lib import passwd" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.ip = '0.0.0.0'" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.port = 8888" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 echo "c.NotebookApp.token = ''" >> 	/home/ubuntu/.jupyter/jupyter_notebook_config.py
-echo "c.NotebookApp.password = passwd('wewyse')" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
+echo "c.NotebookApp.password = u''" >> /home/ubuntu/.jupyter/jupyter_notebook_config.py
 
 export PYSPARK_DRIVER_PYTHON="jupyter"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
