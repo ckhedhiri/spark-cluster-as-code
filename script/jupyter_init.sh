@@ -1,6 +1,8 @@
 #!/bin/bash
 
 sudo apt-get update
+sudo apt-get install python3-pip
+sudo apt-get install openjdk-8-jdk
 
 sudo -H pip3 install jupyter
 sudo -H pip3 install pyspark
@@ -19,5 +21,7 @@ echo "c.NotebookApp.password = u''" >> /home/ubuntu/.jupyter/jupyter_notebook_co
 export PYSPARK_DRIVER_PYTHON="jupyter"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 export PYSPARK_PYTHON=python3
+export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10.9.2-src.zip:$PYTHONPATH
 
 jupyter notebook &
