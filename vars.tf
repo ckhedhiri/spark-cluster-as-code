@@ -10,7 +10,13 @@ variable "SPARK_TAG_AMI_VERSION"{
 variable "PATH_TO_PUBLIC_KEY" {
   type = string
   description = "path to public access key in github repository"
-  default = "taas-spark-key.pub"
+  default = "keys/taas-spark-key.pub"
+}
+
+variable "PATH_TO_PRIVATE_KEY" {
+  type = string
+  description = "path to private access key in github repository"
+  default = "keys/taas-spark-key.pem"
 }
 
 variable "PUBLIC_IP_CIDR"{
