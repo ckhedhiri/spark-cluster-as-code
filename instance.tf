@@ -83,7 +83,7 @@ resource "aws_instance" "jupyter" {
   connection {
     type  = "ssh"
     user  = "ubuntu"
-    host  = self.private_ip
+    host  = self.public_ip
     private_key = file(var.PATH_TO_PRIVATE_KEY)
   }
   provisioner "file" {
