@@ -23,3 +23,4 @@ export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 export PYSPARK_PYTHON=python3
 
 echo "jupyter notebook" >> /etc/init.d/jupyter_notebook.sh
+sudo chmod +x /etc/init.d/jupyter_notebook.sh
